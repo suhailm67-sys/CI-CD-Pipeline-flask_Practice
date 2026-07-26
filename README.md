@@ -27,8 +27,8 @@ sudo apt install python3 python3-pip python3-venv -y
   - Blue Ocean (optional)
 
 ### Step 1: Fork the provided Python web application repository on GitHub.
-1. Fork the repo with - https://github.com/mohanDevOps-arch/flask_Practice.git
-2. Clone the forked repository into your Jenkins server - 
+1. Fork the repo with - https://github.com/mohanDevOps-arch/flask_Practice.git - <img width="1666" height="371" alt="image" src="https://github.com/user-attachments/assets/471deef6-5a96-4acd-844b-ebd76c37d231" />
+2. Clone the forked repository into your Jenkins server - `git clone https://github.com/suhailm67-sys/CI-CD-Pipeline-flask_Practice.git`
 
 # Student Registration System
 
