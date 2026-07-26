@@ -1,5 +1,5 @@
 # Graded Project on CI/CD Pipeline for Flask application using Jenkins
-Architecture Diagram -
+# Architecture Diagram -
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/32651d88-4717-48b0-97c4-3d0b78c2dcf0" />
 
 ## Part 1: Jenkins CI CD pipeline for flask application
