@@ -15,7 +15,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 # Use certifi CA bundle explicitly for cross-platform TLS reliability
 # (notably fixes common macOS certificate verification failures).
 mongo = PyMongo()
-mongo.init_app(app, tlsCAFile=certifi.where())
+mongo.init_app(app)
 
 # Home page -> list students
 @app.route('/')
