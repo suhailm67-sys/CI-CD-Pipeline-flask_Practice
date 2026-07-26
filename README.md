@@ -277,3 +277,5 @@ jobs:
 
 ### One everything is running correctly, check if the flask application is running successfully
 1. Open http://<ec2.ip>:5000 (http://43.204.149.57:5000) and the page will load with the flask application - <img width="1896" height="552" alt="image" src="https://github.com/user-attachments/assets/58350e64-de29-47c8-8105-eb1224801335" />
+
+# Since the application is running sccessfully and giving the desired output, the assignmnet has been successfully completed
