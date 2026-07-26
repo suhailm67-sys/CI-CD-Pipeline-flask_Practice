@@ -5,7 +5,7 @@ pipeline {
     environment {
         VENV = "venv"
         MONGO_URI = "mongodb://localhost:27017/studentdb"
-        SECRET_KEY = "jenkins-secret-key"
+        SECRET_KEY = "jenkins-secret"
     }
 
     stages {
