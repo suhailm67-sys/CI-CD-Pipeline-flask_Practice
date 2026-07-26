@@ -18,7 +18,7 @@ sudo apt install python3 python3-pip python3-venv -y
 ```
 3. Access jenkins via http://<EC2-IP>:8080 - <img width="1885" height="827" alt="image" src="https://github.com/user-attachments/assets/c1fc80b1-d54f-4604-b5bd-72b5e5ea3fb7" />
 4. Configure Jenkins with Python and any necessary libraries, plugins - `sudo apt install python3 python3-pip python3-venv git -y`
-  1. Git Plugin
+  - Git Plugin
   2. GitHub Plugin
   3. Pipeline
   4. Email Extension Plugin
