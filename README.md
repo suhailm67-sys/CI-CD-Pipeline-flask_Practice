@@ -43,6 +43,8 @@ pipeline {
 
     environment {
         VENV = "venv"
+        MONGO_URI = "mongodb://172.18.0.1:27017/test_student_db"
+        SECRET_KEY = "jenkins-secret"
     }
 
     stages {
@@ -52,7 +54,7 @@ pipeline {
             steps {
 
                 git branch: 'main',
-                url: 'https://github.com/<yourusername>/flask_Practice.git'
+                url: 'https://github.com/suhailm67-sys/CI-CD-Pipeline-flask_Practice.git'
             }
         }
 
@@ -104,7 +106,7 @@ pipeline {
             emailext (
                 subject: "SUCCESS: Jenkins Build ${BUILD_NUMBER}",
                 body: "Build Successful",
-                to: "yourmail@gmail.com"
+                to: "suhailm67@gmail.com"
             )
 
         }
@@ -114,7 +116,7 @@ pipeline {
             emailext (
                 subject: "FAILED: Jenkins Build ${BUILD_NUMBER}",
                 body: "Build Failed",
-                to: "yourmail@gmail.com"
+                to: "suhailm67@gmail.com"
             )
 
         }
@@ -129,7 +131,17 @@ pipeline {
 3. Enable Jenkins Trigger - Pipeline >> Configure >> Build Triggers >> Enable `GitHub hook trigger for GITScm polling`
 
 ### Step 5: Notifications- Set up a notification system to alert via email when the build process fails or succeeds.
-1. Configure Email Notification - Manage Jenkins >> Configure System >> Extended Email Notification
+1. Configure Email Notification - Manage Jenkins >> Configure System >> Extended Email Notification and update the email there to receive the notification
+  - SMTP server: smtp.gmail.com:587
+  - Check Use TLS
+  - Add your email credentials
+  - Set Default Recipients
+  - Update your-email@example.com in the Jenkinsfile with your actual email
+
+## After running the build successfully the notfication is sent to email and this completes our Jenkins CI/CD Pipeline - 
+<img width="1841" height="702" alt="image" src="https://github.com/user-attachments/assets/365fcbd2-cbac-4416-81a1-1feba9d6c2b5" />
+<img width="1867" height="791" alt="image" src="https://github.com/user-attachments/assets/807b535c-9361-4405-9124-8243f790276c" />
+
 
 # Student Registration System
 
