@@ -265,3 +265,8 @@ jobs:
 ### Step 4: Environment Secrets:
 1. Use GitHub Secrets to store sensitive information required for deployments (e.g., deployment keys, API tokens).
   - Repository >> Settings >> Secrets and Variables >> Actions >> New Repository Secret
+2.  Add the required secrets - <img width="1207" height="387" alt="image" src="https://github.com/user-attachments/assets/226e6fdc-5a28-470b-8e79-489e1fed6dad" />
+
+### Step 5: Production Deployment
+1. Create Release - GitHub >> Releases >> New Release >> Tag v1.0 >> Publish
+2. This triggers Production Deployment
