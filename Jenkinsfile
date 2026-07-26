@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         VENV = "venv"
-        MONGO_URI = "mongodb://localhost:27017/studentdb"
+        MONGO_URI = "mongodb://mongodb:27017/test_student_db"
         SECRET_KEY = "jenkins-secret"
     }
 
