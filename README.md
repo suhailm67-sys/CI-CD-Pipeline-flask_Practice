@@ -1,4 +1,6 @@
 # Graded Project on CI/CD Pipeline for Flask application using Jenkins
+Architecture Diagram -
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/32651d88-4717-48b0-97c4-3d0b78c2dcf0" />
 
 ## Part 1: Jenkins CI CD pipeline for flask application
 Objective: Set up a Jenkins pipeline that automates the testing and deployment of a simple Python web application.
