@@ -1,7 +1,8 @@
 # Graded Project on CI/CD Pipeline for Flask application using Jenkins
-Objective: Set up a Jenkins pipeline that automates the testing and deployment of a simple Python web application.
 
 ## Part 1: Jenkins CI CD pipeline for flask application
+Objective: Set up a Jenkins pipeline that automates the testing and deployment of a simple Python web application.
+
 ### Step 1: Setup- Install Jenkins on a virtual machine or use a cloud-based Jenkins service.
 1. Setup a EC2 instance
 2. Install Jenkins in the EC2 instance and run it
@@ -143,4 +144,9 @@ pipeline {
 <img width="1867" height="791" alt="image" src="https://github.com/user-attachments/assets/807b535c-9361-4405-9124-8243f790276c" />
 <img width="1746" height="786" alt="image" src="https://github.com/user-attachments/assets/1a1e007f-f29a-4a92-8a99-e28b3b241575" />
 
+## Part 2: GitHub Actions CI/CD Pipeline Flask App
+Objective: Implement a CI/CD workflow using GitHub Actions for a Python application.
 
+### Step 1: Setup
+1. Use a provided Python application repository on GitHub (provide a link to a sample Python application repository
+2. Ensure the repository has a main branch and a staging branch
