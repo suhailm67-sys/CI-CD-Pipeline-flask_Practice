@@ -2,7 +2,7 @@
 Objective: Set up a Jenkins pipeline that automates the testing and deployment of a simple Python web application.
 
 ## Part 1: Jenkins CI CD pipeline for flask application
-### Step 1: Install Jenkins on a virtual machine or use a cloud-based Jenkins service.
+### Step 1: Setup- Install Jenkins on a virtual machine or use a cloud-based Jenkins service.
 1. Setup a EC2 instance
 2. Install Jenkins in the EC2 instance and run it
 ```
@@ -26,9 +26,108 @@ sudo apt install python3 python3-pip python3-venv -y
   - Build Timestamp
   - Blue Ocean (optional)
 
-### Step 1: Fork the provided Python web application repository on GitHub.
+### Step 2: Source Code- Fork the provided Python web application repository on GitHub.
 1. Fork the repo with - https://github.com/mohanDevOps-arch/flask_Practice.git - <img width="1666" height="371" alt="image" src="https://github.com/user-attachments/assets/471deef6-5a96-4acd-844b-ebd76c37d231" />
 2. Clone the forked repository into your Jenkins server - `git clone https://github.com/suhailm67-sys/CI-CD-Pipeline-flask_Practice.git`
+
+### Step 3: Jenkins Pipeline
+1. Create a Jenkinsfile in the root of your Python application repository
+2. Define a pipeline with the following stages:
+  - Build: Install dependencies using pip.
+  - Test: Run unit tests using a testing framework like pytest.
+  - Deploy: If tests pass, deploy the application to a staging environment.
+```
+pipeline {
+
+    agent any
+
+    environment {
+        VENV = "venv"
+    }
+
+    stages {
+
+        stage('Checkout') {
+
+            steps {
+
+                git branch: 'main',
+                url: 'https://github.com/<yourusername>/flask_Practice.git'
+            }
+        }
+
+        stage('Build') {
+
+            steps {
+
+                sh '''
+                python3 -m venv $VENV
+                . $VENV/bin/activate
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                pip install pytest
+                '''
+            }
+
+        }
+
+        stage('Test') {
+
+            steps {
+
+                sh '''
+                . $VENV/bin/activate
+                pytest
+                '''
+            }
+
+        }
+
+        stage('Deploy') {
+
+            steps {
+
+                sh '''
+                . $VENV/bin/activate
+                nohup python app.py > flask.log 2>&1 &
+                '''
+            }
+
+        }
+
+    }
+
+    post {
+
+        success {
+
+            emailext (
+                subject: "SUCCESS: Jenkins Build ${BUILD_NUMBER}",
+                body: "Build Successful",
+                to: "yourmail@gmail.com"
+            )
+
+        }
+
+        failure {
+
+            emailext (
+                subject: "FAILED: Jenkins Build ${BUILD_NUMBER}",
+                body: "Build Failed",
+                to: "yourmail@gmail.com"
+            )
+
+        }
+
+    }
+
+}
+```
+### Step 4: Triggers- Configure the pipeline to trigger a new build whenever changes are pushed to the main branch of the repository.
+1. Create Jenkins Pipeline Job
+2. Configure GitHub Webhook
+### Step 5: Notifications- Set up a notification system to alert via email when the build process fails or succeeds.
+
 
 # Student Registration System
 
