@@ -150,3 +150,113 @@ Objective: Implement a CI/CD workflow using GitHub Actions for a Python applicat
 ### Step 1: Setup
 1. Use a provided Python application repository on GitHub (provide a link to a sample Python application repository
 2. Ensure the repository has a main branch and a staging branch
+  - git checkout -b staging
+  - git push origin staging
+  - git checkout main
+<img width="957" height="442" alt="image" src="https://github.com/user-attachments/assets/0c580554-2b61-483b-8173-83660307981e" />
+
+### Step 2: GitHub Actions Workflow:
+1. Create a .github/workflows/ci.yml directory in your repository
+2. Inside the directory, create a YAML file to define the workflow
+
+### Step 3: GitHub Actions Workflow:
+1. Define a workflow that performs the following jobs:
+  - Install Dependencies: Install all necessary dependencies for the Python application using pip.
+  - Run Tests: Execute the test suite using a framework like pytest.
+  - Build: If tests pass, prepare the application for deployment.
+  - Deploy to Staging: Deploy the application to a staging environment when changes are pushed to the staging branch.
+  - Deploy to Production: Deploy the application to production when a release is tagged.
+```
+name: Flask CI/CD
+
+on:
+
+  push:
+
+    branches:
+
+      - main
+
+      - staging
+
+  release:
+
+    types: [published]
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - name: Setup Python
+
+      uses: actions/setup-python@v5
+
+      with:
+
+        python-version: "3.11"
+
+    - name: Install Dependencies
+
+      run: |
+
+        python -m pip install --upgrade pip
+
+        pip install -r requirements.txt
+
+        pip install pytest
+
+    - name: Run Tests
+
+      run: |
+
+        pytest
+
+  build:
+
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - run: echo "Application Build Successful"
+
+  deploy-staging:
+
+    if: github.ref == 'refs/heads/staging'
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - run: echo "Deploying to Staging"
+
+  deploy-production:
+
+    if: startsWith(github.ref, 'refs/tags/')
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - run: echo "Deploying to Production"
+```
+2. Push the workflow
+  - git add .
+  - git commit -m "Added GitHub Actions"
+  - git push origin main
+  - git checkout staging
+  - git merge main
+  - git push origin staging
