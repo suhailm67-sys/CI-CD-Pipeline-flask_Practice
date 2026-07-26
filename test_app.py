@@ -1,7 +1,7 @@
 import pytest
 import os
 
-os.environ["MONGO_URI"] = "mongodb://mongodb:27017/test_student_db"
+os.environ["MONGO_URI"] = "mongodb://172.18.0.1:27017/test_student_db"
 os.environ["SECRET_KEY"] = "jenkins-secret"
 
 from app import app, mongo
