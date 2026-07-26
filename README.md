@@ -125,9 +125,11 @@ pipeline {
 ```
 ### Step 4: Triggers- Configure the pipeline to trigger a new build whenever changes are pushed to the main branch of the repository.
 1. Create Jenkins Pipeline Job
-2. Configure GitHub Webhook
-### Step 5: Notifications- Set up a notification system to alert via email when the build process fails or succeeds.
+2. Configure GitHub Webhook - <img width="1197" height="852" alt="image" src="https://github.com/user-attachments/assets/7254040e-d9c5-41b2-94ee-a875904724a5" />
+3. Enable Jenkins Trigger - Pipeline >> Configure >> Build Triggers >> Enable `GitHub hook trigger for GITScm polling`
 
+### Step 5: Notifications- Set up a notification system to alert via email when the build process fails or succeeds.
+1. Configure Email Notification - Manage Jenkins >> Configure System >> Extended Email Notification
 
 # Student Registration System
 
