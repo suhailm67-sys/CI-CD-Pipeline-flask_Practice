@@ -260,3 +260,8 @@ jobs:
   - git checkout staging
   - git merge main
   - git push origin staging
+<img width="1077" height="711" alt="image" src="https://github.com/user-attachments/assets/ffcb0ae8-f58c-4c6b-ba4f-53e4103f9732" />
+
+### Step 4: Environment Secrets:
+1. Use GitHub Secrets to store sensitive information required for deployments (e.g., deployment keys, API tokens).
+  - Repository >> Settings >> Secrets and Variables >> Actions >> New Repository Secret
